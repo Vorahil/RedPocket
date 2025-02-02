@@ -9,22 +9,21 @@ public class AddButtonUI extends BasicButtonUI {
     public void paint(Graphics g, JComponent c) {
         JButton button = (JButton) c;
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);//优化边角
 
         if (button.getModel().isPressed()) {
-            g2d.setColor(Color.ORANGE.darker());  // 按下时的颜色
+            g2d.setColor(Color.ORANGE.darker());  //按下时的颜色
         } else {
-            g2d.setColor(Color.ORANGE);  // 普通状态下的颜色
+            g2d.setColor(Color.ORANGE);//普通状态下的颜色
         }
 
         int width = button.getWidth();
         int height = button.getHeight();
         g2d.fillRect(0, 0, width, height);
 
-        Font buttonFont = button.getFont();
+        Font buttonFont = button.getFont();//设置字体
         Font font = buttonFont.deriveFont(Font.BOLD, 16f);
         g2d.setFont(font);
-
         g2d.setColor(Color.BLACK);
         FontMetrics metrics = g2d.getFontMetrics();
         int textWidth = metrics.stringWidth(button.getText());

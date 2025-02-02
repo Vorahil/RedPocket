@@ -12,9 +12,9 @@ public class SendButtonUI extends BasicButtonUI {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         if (button.getModel().isPressed()) {
-            g2d.setColor(Color.GREEN.darker());  // 按下时的颜色
+            g2d.setColor(Color.GREEN.darker());
         } else {
-            g2d.setColor(Color.GREEN);  // 普通状态下的颜色
+            g2d.setColor(Color.GREEN);
         }
 
         int width = button.getWidth();

@@ -27,7 +27,6 @@ public class SystemButtonUI extends BasicButtonUI {
 
         int arc = 10;
         g2d.fillRoundRect(1, 1, width - 2, height - 2, arc, arc);
-
         g2d.setColor(Color.BLACK);
         FontMetrics metrics = g2d.getFontMetrics();
         int textWidth = metrics.stringWidth(button.getText());

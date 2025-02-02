@@ -5,11 +5,13 @@ import com.redpocket.UI.SendButtonUI;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 public class SendButton extends JButton {
+    /**
+     * 发送聊天信息按钮
+     * @param field 主界面
+     * @param panel 聊天框面板
+     */
     public SendButton(JTextField field, JPanel panel) {
         super("Send");
         setPreferredSize(new Dimension(100, 45));
@@ -17,7 +19,7 @@ public class SendButton extends JButton {
         setOpaque(false);
         setContentAreaFilled(false);
         setBorderPainted(false);
-        addActionListener(e -> {
+        addActionListener(_ -> {//发送聊天信息到文本框具体操作
             String string = field.getText().trim();
             if (!string.isEmpty()) {
                 message(string, panel);
@@ -26,6 +28,11 @@ public class SendButton extends JButton {
         });
     }
 
+    /**
+     * 发送聊天信息到文本框的具体操作
+     * @param message 发送的信息
+     * @param panel 聊天框面板
+     */
     private void message(String message, JPanel panel) {
         JPanel bubble = new JPanel() {
             @Override
@@ -36,8 +43,7 @@ public class SendButton extends JButton {
 
                 int width = getWidth();
                 int height = getHeight();
-
-                g2.setColor(new Color(173, 216, 230)); // 浅蓝色
+                g2.setColor(new Color(173, 216, 230));
                 g2.fillRoundRect(5, 5, width - 10, height - 10, 15, 15);
             }
         };
@@ -48,7 +54,6 @@ public class SendButton extends JButton {
         JLabel messageLabel = new JLabel(message);
         messageLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         bubble.add(messageLabel, BorderLayout.CENTER);
-
         JPanel wrapper = new JPanel();
         wrapper.setLayout(new FlowLayout(FlowLayout.RIGHT));
         wrapper.add(bubble);
